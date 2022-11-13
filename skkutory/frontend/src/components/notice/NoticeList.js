@@ -120,17 +120,35 @@ function NoticeList() {
       <div className="notice">
         <div className="notice-middle">
           <div className="notice-card">
-            {noticeList.contents.slice(offset, offset + limit).map((el, index) => {
-             return (
-              <div className="notice-list-box" key={index}>
-                <p className="notice-list-title">{el.title}</p>
-                <div className="notice-list-bottom">
-                  <p className="notice-list-detail">{el.nickname} {el.time} </p>
-                  <img className="notice-image-icon" src={image_icon} />
-                </div>
-              </div>
-              )
-            })}
+          {noticeList.contents
+              .slice(offset, offset + limit)
+              .map((el, index) => {
+                return (
+                  <>
+                    {(index+1) % 20 == 0 ? (
+                      <div className="notice-list-last-box">
+                        <p className="notice-list-title">{el.title}</p>
+                        <div className="notice-list-bottom">
+                          <p className="notice-list-detail">
+                            {el.nickname} {el.time}
+                          </p>
+                          <img className="notice-image-icon" src={image_icon} />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="notice-list-box">
+                        <p className="notice-list-title">{el.title}</p>
+                        <div className="notice-list-bottom">
+                          <p className="notice-list-detail">
+                            {el.nickname} {el.time}
+                          </p>
+                          <img className="notice-image-icon" src={image_icon} />
+                        </div>
+                      </div>
+                    )}
+                  </>
+                );
+              })}
           </div>
           <Pagination
           total={noticeList.contents.length}

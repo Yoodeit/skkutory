@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Pagination from "../Pagination";
 import '../../css/BoardList.css'
 import image_icon from "../../images/image-icon.png";
@@ -340,7 +339,9 @@ export default function BoardList() {
     <div className="board-card">
       {boardList.contents.slice(offset, offset + limit).map((el, index) => {
       return (
-        <div className="board-list-box" key={index}>
+        <>
+        {(index+1) % 20 == 0 ? (
+          <div className="board-list-last-box" key={index}>
           <p className="board-list-title">{el.title}</p>
           <p className="board-list-content">{el.content}</p>
           <div className="board-list-bottom">
@@ -348,6 +349,17 @@ export default function BoardList() {
             <img className="board-image-icon" src={image_icon} />
           </div>
         </div>
+        ) : (
+          <div className="board-list-box" key={index}>
+          <p className="board-list-title">{el.title}</p>
+          <p className="board-list-content">{el.content}</p>
+          <div className="board-list-bottom">
+            <p className="board-list-detail">{el.nickname} {el.time} 공감 {el.like} | 북마크 {el.bookmark}</p>
+            <img className="board-image-icon" src={image_icon} />
+          </div>
+        </div>
+        )}
+        </>
       )
     })}
     </div>
