@@ -182,14 +182,27 @@ function Mypost() {
           <div className="content-card">
             {contentList.contents.slice(offset, offset + limit).map((el, index) => {
              return (
-              <div className="content-list-box" key={index}>
-                <p className="content-list-title">{el.title}</p>
-                <p className="content-list-content">{el.content}</p>
-                <div className="content-list-bottom">
-                  <p className="content-list-detail">{el.nickname} {el.time} 공감 {el.like} | 북마크 {el.bookmark} </p>
-                  <img className="content-image-icon" src={image_icon} />
-                </div>
-              </div>
+              <>
+                {(index+1) % 20 == 0 ? (
+                  <div className="content-list-last-box" key={index}>
+                    <p className="content-list-title">{el.title}</p>
+                    <p className="content-list-content">{el.content}</p>
+                    <div className="content-list-bottom">
+                      <p className="content-list-detail">{el.nickname} {el.time} 공감 {el.like} | 북마크 {el.bookmark} </p>
+                      <img className="content-image-icon" src={image_icon} />
+                    </div>
+                  </div>
+                  ) : (
+                  <div className="content-list-box" key={index}>
+                    <p className="content-list-title">{el.title}</p>
+                    <p className="content-list-content">{el.content}</p>
+                    <div className="content-list-bottom">
+                      <p className="content-list-detail">{el.nickname} {el.time} 공감 {el.like} | 북마크 {el.bookmark} </p>
+                      <img className="content-image-icon" src={image_icon} />
+                    </div>
+                  </div>
+                  )}
+              </>
               )
             })}
           </div>
