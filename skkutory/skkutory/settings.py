@@ -93,8 +93,10 @@ MIDDLEWARE = [
 
 #CORS_ORIGIN_WHITELIST에 등록된 url에서의 접근만 허용 가능, 즉 3000포트에서 오는 요청 처리 가능
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
+    'http://localhost:3000', 'http://localhost:3000'
 ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'skkutory.urls'
 
