@@ -1,0 +1,33 @@
+.Nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-top: 16px;
+}
+
+.numButton {
+    border: none;
+    padding: none;
+    margin-top: 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #636363;
+    background-color: #f5f5f5;
+  }
+
+  .dirButton {
+    border: none;
+    padding: none;
+    margin-top: 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #636363;
+    background-color: #f5f5f5;
+  }
+
+  .aria-current {
+    font-weight: bold;
+  }

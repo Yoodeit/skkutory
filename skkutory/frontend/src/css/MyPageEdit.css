@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "Pretendatd-Regular";
+    src: url("../fonts/Pretendard-Regular.ttf");
+  }
+  
+  * {
+    font-family: "Pretendatd-Regular";
+  }
+  
+  .my-page-edit {
+    height: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 398px;
+    padding: 16px;
+    background-color: black;
+  }

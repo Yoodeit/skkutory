@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Pretendatd-Regular";
+  src: url("../fonts/Pretendard-Regular.ttf");
+}
+
+* {
+  font-family: "Pretendatd-Regular";
+}
+
+
+.home-banner-card {
+  margin-bottom: 8px;
+  background: linear-gradient(
+    315.35deg,
+    #225a21 13.45%,
+    #326a31 45.29%,
+    #528651 90.2%
+  );
+  width: 32%;
+  height: 80px;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #F5F5F5;
+  display: grid;
+  grid-row: auto;
+  cursor: pointer;
+}
+
+.img-box {
+  width: 48px;
+  height: 36px;
+  text-align: center;
+  margin: 14px auto 0px auto;
+}
+
+.baaner-title{
+  margin: 0;
+}

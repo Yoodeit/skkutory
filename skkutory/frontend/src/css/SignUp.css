@@ -1,0 +1,73 @@
+@font-face {
+  font-family: "Pretendatd-Regular";
+  src: url("../fonts/Pretendard-Regular.ttf");
+}
+
+* {
+  font-family: "Pretendatd-Regular";
+}
+
+.sign-up{
+  height: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 398px;
+  padding: 16px;
+  background-color: #f5f5f5;
+}
+
+.input-box {
+  margin-top: 160px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-content {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.8fr;
+  margin-bottom: 8px;
+}
+
+.input-title {
+  margin-right: 8px;
+  padding-top: 3px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  text-align: right;
+  color: #323232;
+}
+
+.sign-up-name {
+  width: 100%;
+  background: #ffffff;
+  border: 0.1px solid #d8d8d8;
+  border-radius: 5px;
+  padding: 0;
+}
+
+.input-content.email {
+  grid-template-columns: 1fr 0.45fr 0.15fr 0.4fr 0.8fr;
+}
+
+.sign-up-name.email-input {
+  width: 100%;
+}
+
+.email-sign {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 14px;
+  color: #636363;
+}
+.sign-up-name .email-select {
+  width: 100%;
+}
+
+.input-content.phone {
+  grid-template-columns: 1fr 0.24fr 0.14fr 0.24fr 0.14fr 0.24fr 0.8fr;
+}

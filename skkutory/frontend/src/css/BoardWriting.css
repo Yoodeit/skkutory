@@ -1,0 +1,107 @@
+@font-face {
+    font-family: "Pretendatd-Regular";
+    src: url("../fonts/Pretendard-Regular.ttf");
+  }
+  
+  * {
+    font-family: "Pretendatd-Regular";
+  }
+  
+  .writing {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 380px;
+    height: 812px;
+    padding: 16px;
+    padding-top: 18px;
+    background-color: #f5f5f5;
+  }
+  
+  .writing-top {
+    width: 380px;
+    height: 36px;
+  }
+  
+  .writing-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 93%;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 8px;
+  }
+  
+  .writing-title-input {
+    width: 100%;
+    font-size: 12px;
+    font-weight: 500;
+    backface-visibility: hidden;
+    border-style: none;
+  }
+  
+  .writing-middle {
+    margin-top: 10px;
+    width: 380px;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  
+  .writing-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 93%;
+    height:400px;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  
+  .writing-content-input {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 10px;
+    font-weight: 500;
+    backface-visibility: hidden;
+    border-style: none;
+  }
+
+  .camera-icon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .writing-bottom {
+    margin-top: 20px;
+  }
+
+  .writing-button {
+    width: 30%;
+    height: 35px;
+    background: linear-gradient(
+      315.35deg,
+      #225a21 13.45%,
+      #326a31 45.29%,
+      #528651 90.2%
+    );
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
+  

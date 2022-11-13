@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "Pretendatd-Regular";
+    src: url("../fonts/Pretendard-Regular.ttf");
+  }
+
+  * {
+    font-family: "Pretendatd-Regular";
+  }
+  
+  .notice {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 380px;
+    padding: 16px;
+    padding-top: 18px;
+    background-color: #f5f5f5;
+  }
+  
+  .notice-middle {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  
+  .notice-bottom {
+    margin-top: 20px;
+  }
+
+  .notice-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    font-family: "Pretendatd-Regular";
+  }
+
+  .notice-list-box {
+    margin-top: 10px;
+    width: 95%;
+    text-align: left;
+    border-bottom: 1px solid #d8d8d8;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .notice-list-title {
+    margin-top: 12px;
+    margin-bottom: 16px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #323232;
+  }
+  
+  .notice-list-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .notice-list-detail {
+    margin-top: 0px;
+    margin-bottom: 8px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 8px;
+    color: #636363;
+  }
+  
+  .notice-image-icon{
+    margin-top: 0px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+  }

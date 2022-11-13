@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "Pretendatd-Regular";
+    src: url("../fonts/Pretendard-Regular.ttf");
+  }
+  
+  .board-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    font-family: "Pretendatd-Regular";
+  }
+
+  .board-list-box {
+    margin-top: 12px;
+    width: 95%;
+    text-align: left;
+    border-bottom: 1px solid #d8d8d8;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .board-list-title {
+    margin-top: 0;
+    margin-bottom: 7px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: #323232;
+  }
+  
+  .board-list-content {
+    margin-top: 0;
+    margin-bottom: 9px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    color: #323232;
+  }
+  
+  .board-list-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .board-list-detail {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 8px;
+    color: #636363;
+  }
+  
+  .board-image-icon{
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+  }

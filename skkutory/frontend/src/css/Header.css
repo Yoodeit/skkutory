@@ -1,0 +1,40 @@
+.header {
+  font-size: 15px;
+  color: inherit;
+  text-decoration: inherit;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 430px;
+  top: 0;
+  z-index: 5;
+  background: #326a31;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 10px 10px;
+}
+
+.header-con {
+  padding: 0 20px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+}
+
+.header-logo{
+  cursor: pointer;
+  width: 35px;
+}
+
+.header-menu {
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+}
+
+.header-user {
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+}

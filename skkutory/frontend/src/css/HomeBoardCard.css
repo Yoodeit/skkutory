@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "Pretendatd-Regular";
+  src: url("../fonts/Pretendard-Regular.ttf");
+}
+
+.home-board-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 108px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  font-family: "Pretendatd-Regular";
+}
+
+.home-board-card.dorm-list{
+ height: 185px; 
+}
+
+.board-title-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.board-title {
+  margin-top: 10px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #323232;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.board-subtitle {
+  margin: 16px 40px 0 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  color: #323232;
+}
+
+.board-button {
+  height: 10px;
+}
+
+.board-content-box {
+  margin: 0;
+  padding-left: 5%;
+  width: 90%;
+  text-align: left;
+  list-style-type: none;
+}
+
+.board-content {
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  color: #323232;
+  cursor: pointer;
+}
+
+.board-content-box.dorm-list{
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto; 
+}
+
+.plus-btn {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  padding-top: 3px;
+  cursor: pointer;
+}
