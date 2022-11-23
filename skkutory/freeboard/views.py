@@ -5,11 +5,10 @@ from rest_framework.response import Response
 #from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 #APIView : 공통적인 함수 재사용 가능, DRY정책 따르도록 하는 강력한 패턴을 제공
-from rest_framework import mixins, generics, permissions
+from rest_framework import mixins, generics
 from .models import Freeboard
 from django.http import Http404
 from rest_framework import status
-from .permissions import IsOwnerOrReadOnly
 
 
 #DRF API view -> 두 종류의 wrapper 선택 가능.
@@ -24,21 +23,21 @@ class FreeboardList(generics.ListCreateAPIView):
     serializer_class = FreeboardSerializer
     #post요청 시 실행되는 perform_create라는 method를 오버라이딩함으로서 기본 create함수를 바꿔줄 수 있다.
     # 즉, serializer.save(owner=self.request.user)를 통해 FreeboardSerializer속 field인 owner를 현재의 user로 채운 것!
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     # drf가 이용자 권한 설정 클래스를 제공한다
     # 여기서는 IsAuthenticatedOrReadOnly이다. authenticated만 R이랑 C 둘 다 가능, 아니면 R만
-
+'''
     def perform_create(self, serializer):
         #post요청하면 perform_create() 오버라이딩
         # instance save를 수정가능
         serializer.save(owner = self.request.user)
+'''
     
-
 
 class FreeboardDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Freeboard.objects.all()
     serializer_class = FreeboardSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+    #permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()

@@ -1,5 +1,5 @@
 import "./App.css";
-import RestAPI from "./RestAPI.js";
+import RestAPI from "./restapi.js";
 import React from "react";
 
 function App() {

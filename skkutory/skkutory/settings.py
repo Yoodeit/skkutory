@@ -71,6 +71,7 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+'''
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
@@ -79,7 +80,7 @@ REST_FRAMEWORK = {
     ],
     
 }
-
+'''
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
