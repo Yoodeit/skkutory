@@ -43,7 +43,7 @@ function Home() {
         </div>
         <div className="home-middle">
           <div className="upper-card">
-            <HomeBoardCard title="공지사항" link="/notice"/>
+            <HomeBoardCard title="공지사항" link="/notice" />
           </div>
           <div className="upper-card">
             <HomeBoardCard title="기숙사 식당" subtitle="E하우스" />
@@ -51,12 +51,36 @@ function Home() {
         </div>
 
         <div className="home-banner">
-          <HomeBannerCard title="자유게시판" img={free_board_img} link="/freeboard"/>
-          <HomeBannerCard title="정보게시판" img={information_board_img} link="/infoboard"/>
-          <HomeBannerCard title="건의게시판" img={suggestion_board_img} link="/suggboard"/>
-          <HomeBannerCard title="공구게시판" img={together_board_img} link="/groupboard"/>
-          <HomeBannerCard title="나눔게시판" img={share_board_img} link="/shareboard"/>
-          <HomeBannerCard title="룸메 찾아요" img={find_roommates_img} link="/roommatefindboard"/>
+          <HomeBannerCard
+            title="자유게시판"
+            img={free_board_img}
+            link="/freeboard"
+          />
+          <HomeBannerCard
+            title="정보게시판"
+            img={information_board_img}
+            link="/infoboard"
+          />
+          <HomeBannerCard
+            title="건의게시판"
+            img={suggestion_board_img}
+            link="/suggboard"
+          />
+          <HomeBannerCard
+            title="공구게시판"
+            img={together_board_img}
+            link="/groupboard"
+          />
+          <HomeBannerCard
+            title="나눔게시판"
+            img={share_board_img}
+            link="/shareboard"
+          />
+          <HomeBannerCard
+            title="룸메 찾아요"
+            img={find_roommates_img}
+            link="/roommatefindboard"
+          />
         </div>
 
         <div className="home-bottom">

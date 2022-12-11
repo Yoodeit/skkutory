@@ -33,7 +33,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header/>
         <Routes>
           <Route path="/" element={<Main />}></Route>
           <Route path="/signin" element={<SignIn />}></Route>

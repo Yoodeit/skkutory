@@ -22,7 +22,7 @@
   height: 48px;
 }
 
-.header-logo{
+.header-logo {
   cursor: pointer;
   width: 35px;
 }
@@ -37,4 +37,21 @@
   cursor: pointer;
   width: 28px;
   height: 28px;
+}
+
+.header-goback{
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.header-page {
+  font-weight: 600;
+  font-size: 22px;
+  color: #F5F5F5;
+  margin: 0;
+}
+
+.header-empty-box{
+  width: 20px;
 }
