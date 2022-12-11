@@ -18,7 +18,7 @@ function FreeWriting() {
     
         <div className="writing-middle">
         <div className="writing-content">
-            <input
+            <textarea
               className="writing-content-input"
               type="text"
               placeholder="내용"
