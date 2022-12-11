@@ -1,9 +1,10 @@
 import React from "react";
 import "../../../css/BoardWriting.css";
-
+import Header from "../../Header";
 function InfoWriting() {
   return (
     <>
+      <Header title="정보게시판" />
       <div className="writing">
         <div className="writing-top">
           <div className="writing-title">
@@ -14,9 +15,9 @@ function InfoWriting() {
             />
           </div>
         </div>
-    
+
         <div className="writing-middle">
-        <div className="writing-content">
+          <div className="writing-content">
             <textarea
               className="writing-content-input"
               type="text"

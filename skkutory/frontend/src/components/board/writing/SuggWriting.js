@@ -1,9 +1,10 @@
 import React from "react";
 import "../../../css/BoardWriting.css";
-
+import Header from "../../Header";
 function SuggWriting() {
   return (
     <>
+      <Header title="건의게시판" />
       <div className="writing">
         <div className="writing-top">
           <div className="writing-title">
@@ -14,9 +15,9 @@ function SuggWriting() {
             />
           </div>
         </div>
-    
+
         <div className="writing-middle">
-        <div className="writing-content">
+          <div className="writing-content">
             <textarea
               className="writing-content-input"
               type="text"

@@ -16,6 +16,20 @@
   background-color: #f2f2f2;
 }
 
+.profile-img{
+  position: relative;
+  top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 100px;
+  border: solid #d8d8d8 1px;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  background-image: url('../images/sample_profile_img.svg');
+  background-size : cover;
+}
+
 .profile-box {
   margin-left: auto;
   margin-right: auto;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Pagination from "../Pagination";
 import "../../css/MyContent.css";
 import image_icon from "../../images/image-icon.png";
-
+import Header from "../Header";
 
 function Bookmark() {
   const contentList = {
@@ -13,7 +13,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목2",
@@ -21,7 +21,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목3",
@@ -29,7 +29,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목4",
@@ -37,7 +37,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목5",
@@ -45,7 +45,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목6",
@@ -53,7 +53,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목7",
@@ -61,7 +61,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목8",
@@ -69,7 +69,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목9",
@@ -77,7 +77,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목10",
@@ -85,7 +85,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목11",
@@ -93,7 +93,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목12",
@@ -101,7 +101,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목13",
@@ -109,7 +109,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목14",
@@ -117,7 +117,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목15",
@@ -125,7 +125,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목16",
@@ -133,7 +133,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목17",
@@ -141,7 +141,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목18",
@@ -149,7 +149,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목19",
@@ -157,7 +157,7 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
+        bookmark: 2,
       },
       {
         title: "제목20",
@@ -165,8 +165,8 @@ function Bookmark() {
         nickname: "닉네임",
         time: "2022.09.29 21:05",
         like: 32,
-        bookmark: 2
-      }
+        bookmark: 2,
+      },
     ],
   };
 
@@ -177,44 +177,59 @@ function Bookmark() {
 
   return (
     <>
+      <Header title="북마크" />
       <div className="content">
         <div className="content-middle">
           <div className="content-card">
-            {contentList.contents.slice(offset, offset + limit).map((el, index) => {
-             return (
-              <>
-                {(index+1) % 20 == 0 ? (
-                  <div className="content-list-last-box" key={index}>
-                    <p className="content-list-title">{el.title}</p>
-                    <p className="content-list-content">{el.content}</p>
-                    <div className="content-list-bottom">
-                      <p className="content-list-detail">{el.nickname} {el.time} 공감 {el.like} | 북마크 {el.bookmark} </p>
-                      <img className="content-image-icon" src={image_icon} />
-                    </div>
-                  </div>
-                  ) : (
-                  <div className="content-list-box" key={index}>
-                    <p className="content-list-title">{el.title}</p>
-                    <p className="content-list-content">{el.content}</p>
-                    <div className="content-list-bottom">
-                      <p className="content-list-detail">{el.nickname} {el.time} 공감 {el.like} | 북마크 {el.bookmark} </p>
-                      <img className="content-image-icon" src={image_icon} />
-                    </div>
-                  </div>
-                  )}
-              </>
-              )
-            })}
+            {contentList.contents
+              .slice(offset, offset + limit)
+              .map((el, index) => {
+                return (
+                  <>
+                    {(index + 1) % 20 == 0 ? (
+                      <div className="content-list-last-box" key={index}>
+                        <p className="content-list-title">{el.title}</p>
+                        <p className="content-list-content">{el.content}</p>
+                        <div className="content-list-bottom">
+                          <p className="content-list-detail">
+                            {el.nickname} {el.time} 공감 {el.like} | 북마크{" "}
+                            {el.bookmark}{" "}
+                          </p>
+                          <img
+                            className="content-image-icon"
+                            src={image_icon}
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="content-list-box" key={index}>
+                        <p className="content-list-title">{el.title}</p>
+                        <p className="content-list-content">{el.content}</p>
+                        <div className="content-list-bottom">
+                          <p className="content-list-detail">
+                            {el.nickname} {el.time} 공감 {el.like} | 북마크{" "}
+                            {el.bookmark}{" "}
+                          </p>
+                          <img
+                            className="content-image-icon"
+                            src={image_icon}
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </>
+                );
+              })}
           </div>
           <Pagination
-          total={contentList.contents.length}
-          limit={limit}
-          page={page}
-          setPage={setPage}
-        />
+            total={contentList.contents.length}
+            limit={limit}
+            page={page}
+            setPage={setPage}
+          />
         </div>
 
-        <div className="content-bottom"/>
+        <div className="content-bottom" />
       </div>
     </>
   );

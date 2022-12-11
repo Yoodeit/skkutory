@@ -186,6 +186,23 @@ function SignUp() {
               />{" "}
             </div>
             <div className="input-content">
+              <label className="input-title" htmlFor="dorm">
+                기숙사
+              </label>
+              <select className="sign-up-name">
+                <option value="E-하우스">E-하우스</option>
+                <option value="G-하우스">G-하우스</option>
+                <option value="K-하우스">K-하우스</option>
+                <option value="C-하우스">C-하우스</option>
+                <option value="I-하우스">I-하우스</option>
+                <option value="M-하우스">M-하우스</option>
+                <option value="빅토리하우스">빅토리하우스</option>
+                <option value="크라운빌 A동">크라운빌 A동</option>
+                <option value="크라운빌 C동">크라운빌 C동</option>
+                <option value="이완근관">이완근관</option>
+              </select>
+            </div>
+            <div className="input-content">
               <span className="input-title">학교인증</span>
               <img className="sign-up-name" alt="camera" />
             </div>
