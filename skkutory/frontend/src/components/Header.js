@@ -47,7 +47,7 @@ function Header(props) {
             src={goback}
           />
           <h1 className="header-page">{props.title}</h1>
-          <img
+          <img 
             onClick={openModal}
             src={menu_img}
             alt="menu.img"

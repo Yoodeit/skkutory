@@ -9,7 +9,7 @@ from rest_framework import mixins, generics, permissions
 from .models import Freeboard
 from django.http import Http404
 from rest_framework import status
-from .permissions import IsOwnerOrReadOnly
+#from .permissions import IsOwnerOrReadOnly
 
 
 #DRF API view -> 두 종류의 wrapper 선택 가능.
@@ -28,17 +28,17 @@ class FreeboardList(generics.ListCreateAPIView):
     # drf가 이용자 권한 설정 클래스를 제공한다
     # 여기서는 IsAuthenticatedOrReadOnly이다. authenticated만 R이랑 C 둘 다 가능, 아니면 R만
 
-    def perform_create(self, serializer):
+    #def perform_create(self, serializer):
         #post요청하면 perform_create() 오버라이딩
         # instance save를 수정가능
-        serializer.save(owner = self.request.user)
-    
+        #serializer.save(owner = self.request.user)
+  
 
 
 class FreeboardDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Freeboard.objects.all()
     serializer_class = FreeboardSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+    #permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
