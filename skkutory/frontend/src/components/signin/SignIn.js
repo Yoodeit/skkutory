@@ -7,7 +7,8 @@ function SignIn() {
   return (
     <>
       <div className="sign-in">
-        <h1>성균관대학교 기숙사 커뮤니티</h1>
+        <h2 className="title-explain">성균관대학교 기숙사 커뮤니티</h2>
+        <h1 className="title-name">기슦사</h1>
         <img className="logo" alt="logo" src={logo} />
         <Link to="/login">
           <div>

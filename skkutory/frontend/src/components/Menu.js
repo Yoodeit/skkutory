@@ -10,6 +10,9 @@ function Menu(props) {
   const { open, close } = props;
   const url_bong = "https://dorm.skku.edu/dorm_suwon/";
   const url_myung = "https://dorm.skku.edu/dorm_seoul/";
+  const url_dorm_rest =
+    "https://dorm.skku.edu/dorm_seoul/lifeguide/dorm_restaurant.jsp";
+  const url_dorm_info = "https://dorm.skku.edu/dorm_seoul/lifeguide/e_house_living.jsp";
 
   return (
     <div className={open ? "openMenu menu" : "menu"}>
@@ -47,8 +50,23 @@ function Menu(props) {
             <li onClick={() => navigate("/notice")} className="list-name">
               공지사항
             </li>
-            <li className="list-name">기숙사 식당</li>
-            <li className="list-name">기숙사 정보</li>
+
+            <li
+              onClick={() => {
+                window.open(url_dorm_rest);
+              }}
+              className="list-name"
+            >
+              기숙사 식당
+            </li>
+            <li
+              onClick={() => {
+                window.open(url_dorm_info);
+              }}
+              className="list-name"
+            >
+              기숙사 정보
+            </li>
             <img className="list-line" alt="listline" src={line} />
             <li onClick={() => navigate("/mypage")} className="list-name">
               마이페이지
@@ -67,7 +85,9 @@ function Menu(props) {
               onClick={() => {
                 window.open(url_myung);
               }}
-            >명륜학사 홈페이지</li>
+            >
+              명륜학사 홈페이지
+            </li>
           </ul>
         </section>
       ) : null}

@@ -9,7 +9,7 @@ function HomeBoardCard(props) {
       <div className="board-title-box">
         <p className="board-title" onClick={() => navigate(props.link)}>{props.title}</p>
         <p className="board-subtitle">{props.subtitle}</p>
-        <p className="plus-btn">+</p>
+        <p className="plus-btn" onClick={() => navigate(props.link)}>+</p>
       </div>
       <ul className="board-content-box">
         <li className="board-content">글1</li>
