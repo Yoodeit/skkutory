@@ -1,15 +1,15 @@
 from django.shortcuts import render, HttpResponse
-from .api.serializers import FreeboardSerializer, UserSerializer
+from .api.serializers import PostSerializer, UserSerializer
 from django.contrib.auth.models import User
 from rest_framework.response import Response
 #from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 #APIView : 공통적인 함수 재사용 가능, DRY정책 따르도록 하는 강력한 패턴을 제공
 from rest_framework import mixins, generics, permissions
-from .models import Freeboard
+from .models import Post
 from django.http import Http404
 from rest_framework import status
-#from .permissions import IsOwnerOrReadOnly
+from .permissions import IsOwnerOrReadOnly
 
 
 #DRF API view -> 두 종류의 wrapper 선택 가능.
@@ -19,27 +19,27 @@ from rest_framework import status
 #REST API 설계 시 반드시 지켜야 할 대원칙
 # 첫째, URL은 정보의 자원을 포함할 것.
 # 둘째, 자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE)로 표현할 것
-class FreeboardList(generics.ListCreateAPIView):
-    queryset = Freeboard.objects.all()
-    serializer_class = FreeboardSerializer
+class PostList(generics.ListCreateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
     #post요청 시 실행되는 perform_create라는 method를 오버라이딩함으로서 기본 create함수를 바꿔줄 수 있다.
     # 즉, serializer.save(owner=self.request.user)를 통해 FreeboardSerializer속 field인 owner를 현재의 user로 채운 것!
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     # drf가 이용자 권한 설정 클래스를 제공한다
     # 여기서는 IsAuthenticatedOrReadOnly이다. authenticated만 R이랑 C 둘 다 가능, 아니면 R만
 
-    #def perform_create(self, serializer):
+    def perform_create(self, serializer):
         #post요청하면 perform_create() 오버라이딩
-        # instance save를 수정가능
-        #serializer.save(owner = self.request.user)
+        #instance save를 수정가능
+        serializer.save(owner = self.request.user)
   
 
 
-class FreeboardDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Freeboard.objects.all()
-    serializer_class = FreeboardSerializer
-    #permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
-
+class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+    
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer

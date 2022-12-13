@@ -1,4 +1,3 @@
-'''
 from rest_framework import permissions
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
@@ -9,4 +8,3 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
             return True
 
         return obj.owner ==  request.user
-'''
