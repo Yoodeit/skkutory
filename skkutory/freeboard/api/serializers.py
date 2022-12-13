@@ -10,7 +10,7 @@ class PostSerializer(serializers.ModelSerializer) :
         owner = serializers.ReadOnlyField(source='owner.username')
         #ReadOnlyField란 Charfield(read_only=True)랑 똑같은거
         #source를 통해 field 채울 내용을 정함
-        fields = ('id', 'title', 'content', 'owner',)            # 모든 필드 포함
+        fields = ('id', 'title', 'content', 'owner', 'created_at')            # 모든 필드 포함
 
 class UserSerializer(serializers.ModelSerializer):
     post = serializers.PrimaryKeyRelatedField(many=True, queryset=Post.objects.all())
