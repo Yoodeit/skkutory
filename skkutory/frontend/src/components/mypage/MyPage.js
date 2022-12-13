@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import HomeBannerCard from "../home/HomeBannerCard";
 import "../../css/MyPage.css";
 import edit_img from "../../images/edit.svg";
@@ -9,18 +9,23 @@ import sample_profile_img from "../../images/sample_profile_img.svg";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header";
 import axios from "axios";
+import Logout from "../signin/Logout";
 
 function MyPage() {
   const [isEdit, setIsEdit] = useState(false);
   const navigate = useNavigate();
-  const [nickname, setNickname] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [errors, setErrors] = useState(false);
-  const [loading, setLoading] = useState(true);
 
-  const onChangeNickname = (e) => {
-    setNickname(e.target.value);
+  const onChangeUsername = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value);
   };
 
   const onChangePwd1 = (e) => {
@@ -31,19 +36,12 @@ function MyPage() {
     setPassword2(e.target.value);
   };
 
-  useEffect(() => {
-    if (localStorage.getItem("token") !== null) {
-      window.location.replace("http://localhost:3000/dashboard");
-    } else {
-      setLoading(false);
-    }
-  }, []);
-
   const onSubmit = (e) => {
     e.preventDefault();
 
     const user = {
-      nickname: nickname,
+      username: username,
+      email: email,
       password1: password1,
       password2: password2,
     };
@@ -54,20 +52,26 @@ function MyPage() {
       return false;
     }
 
-    axios.post("/api/v1/mall/auth/register/", user).then((res) => {
-      if (res.data.key) {
-        localStorage.clear();
-        localStorage.setItem("token", res.data.key);
-        // 사용하려면 App.js에서 /로 라우팅해야 한다
-        window.location.replace("/");
-      } else {
-        setNickname("");
-        setPassword1("");
-        setPassword2("");
-        localStorage.clear();
-        setErrors(true);
-      }
-    });
+    axios
+      .post("http://127.0.0.1:8000/rest-auth/registration/", user)
+      .then((res) => {
+        if (res.data.key) {
+          localStorage.clear();
+          localStorage.setItem("token", res.data.key);
+          window.location.replace("/");
+        } else {
+          setUsername("");
+          setEmail("");
+          setPassword1("");
+          setPassword2("");
+          localStorage.clear();
+          setErrors(true);
+        }
+      })
+      .catch((err) => {
+        console.clear();
+        alert("error");
+      });
   };
 
   const dummy_profie = {
@@ -77,6 +81,7 @@ function MyPage() {
     id: "일이삼사오육칠팔구십일이삼사오육칠팔구십일이",
     email: "youjinv@naver.com",
   };
+
   return (
     <>
       <Header title="마이페이지" />
@@ -84,9 +89,9 @@ function MyPage() {
         <div className="profile-img" />
         {isEdit ? (
           <>
-            <div className="profile-box">
-              <form onSubmit={onSubmit}>
-                <div className="edit-content">
+            <form onSubmit={onSubmit}>
+              <div className="profile-box profile-edit">
+                {/* <div className="edit-content">
                   <label className="edit-title" htmlFor="nickname">
                     닉네임
                   </label>
@@ -99,12 +104,12 @@ function MyPage() {
                     onChange={onChangeNickname}
                     required
                   />
-                </div>
-                <div className="edit-content">
-                  <label className="edit-title" htmlFor="dorm">
+                </div> */}
+                <div className="profile-edit-box">
+                  <label className="profile-content-title" htmlFor="dorm">
                     기숙사
                   </label>
-                  <select className="edit-name">
+                  <select className="edit-content">
                     <option value="E-하우스">E-하우스</option>
                     <option value="G-하우스">G-하우스</option>
                     <option value="K-하우스">K-하우스</option>
@@ -117,25 +122,12 @@ function MyPage() {
                     <option value="이완근관">이완근관</option>
                   </select>
                 </div>
-                <div className="edit-content">
-                  <label className="edit-title" htmlFor="password1">
+                <div className="profile-edit-box">
+                  <label className="profile-content-title" htmlFor="password1">
                     현재 비밀번호
                   </label>
                   <input
-                    className="edit-name"
-                    name="password1"
-                    type="password"
-                    value={password1}
-                    onChange={onChangePwd1}
-                    required
-                  />{" "}
-                </div>
-                <div className="edit-content">
-                  <label className="edit-title" htmlFor="password1">
-                    변경 비밀번호
-                  </label>
-                  <input
-                    className="edit-name"
+                    className="edit-content"
                     name="password1"
                     type="password"
                     value={password1}
@@ -143,12 +135,25 @@ function MyPage() {
                     required
                   />
                 </div>
-                <div className="edit-content">
-                  <label className="edit-title" htmlFor="password2">
+                <div className="profile-edit-box">
+                  <label className="profile-content-title" htmlFor="password1">
+                    변경 비밀번호
+                  </label>
+                  <input
+                    className="edit-content"
+                    name="password1"
+                    type="password"
+                    value={password1}
+                    onChange={onChangePwd1}
+                    required
+                  />
+                </div>
+                <div className="profile-edit-box">
+                  <label className="profile-content-title" htmlFor="password2">
                     비밀번호 확인
                   </label>
                   <input
-                    className="edit-name"
+                    className="edit-content"
                     name="password2"
                     type="password"
                     value={password2}
@@ -156,10 +161,14 @@ function MyPage() {
                     required
                   />
                 </div>
-                <input className="edit-btn" type="submit" value="수정완료" />
-              </form>
-              <button onClick={() => setIsEdit(false)} />
-            </div>
+              </div>
+              <input
+                onClick={() => setIsEdit(false)}
+                className="edit-btn"
+                type="submit"
+                value="수정완료"
+              />
+            </form>
           </>
         ) : (
           <>
@@ -208,6 +217,8 @@ function MyPage() {
                 link="/bookmark"
               />
             </div>
+
+            <Logout />
           </>
         )}
       </div>

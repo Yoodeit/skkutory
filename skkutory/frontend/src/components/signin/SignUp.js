@@ -4,27 +4,16 @@ import { useNavigate } from "react-router-dom";
 import goback from "../../images/goback.svg";
 import axios from "axios";
 
-function SignUp() {
+function SignUp () {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [nickname, setNickname] = useState("");
-  const [id, setId] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [errors, setErrors] = useState(false);
-  const [loading, setLoading] = useState(true);
 
-  const onChangeName = (e) => {
-    setName(e.target.value);
-  };
-
-  const onChangeId = (e) => {
-    setId(e.target.value);
-  };
-
-  const onChangeNickname = (e) => {
-    setNickname(e.target.value);
+  const onChangeUsername = (e) => {
+    setUsername(e.target.value);
   };
 
   const onChangeEmail = (e) => {
@@ -39,21 +28,11 @@ function SignUp() {
     setPassword2(e.target.value);
   };
 
-  useEffect(() => {
-    if (localStorage.getItem("token") !== null) {
-      window.location.replace("http://localhost:3000/dashboard");
-    } else {
-      setLoading(false);
-    }
-  }, []);
-
   const onSubmit = (e) => {
     e.preventDefault();
 
     const user = {
-      name: name,
-      nickname: nickname,
-      id: id,
+      username: username,
       email: email,
       password1: password1,
       password2: password2,
@@ -65,23 +44,27 @@ function SignUp() {
       return false;
     }
 
-    axios.post("/api/v1/mall/auth/register/", user).then((res) => {
-      if (res.data.key) {
-        localStorage.clear();
-        localStorage.setItem("token", res.data.key);
-        // 사용하려면 App.js에서 /로 라우팅해야 한다
-        window.location.replace("/");
-      } else {
-        setId("");
-        setName("");
-        setNickname("");
-        setEmail("");
-        setPassword1("");
-        setPassword2("");
-        localStorage.clear();
-        setErrors(true);
-      }
-    });
+
+    axios
+      .post("http://127.0.0.1:8000/rest-auth/registration/", user)
+      .then((res) => {
+        if (res.data.key) {
+          localStorage.clear();
+          localStorage.setItem("token", res.data.key);
+          window.location.replace("/login");
+        } else {
+          setUsername("");
+          setEmail("");
+          setPassword1("");
+          setPassword2("");
+          localStorage.clear();
+          setErrors(true);
+        }
+      })
+      .catch((err) => {
+        console.clear();
+        alert("error");
+      });
   };
 
   return (
@@ -99,23 +82,72 @@ function SignUp() {
         </div>
       </section>
 
-      {errors === true && <h2>Cannot signup with provided credentials</h2>}
       <div className="sign-up">
+        {errors === true && <h2>Cannot signup with provided credentials</h2>}
         <div className="input-box">
           <form onSubmit={onSubmit}>
             <div className="input-content">
-              <label className="input-title" htmlFor="name">
+              <label className="input-title" htmlFor="username">
                 이름
               </label>
               <input
-                className="sign-up-name"
-                name="name"
                 type="text"
-                value={name}
-                onChange={onChangeName}
+                value={username}
+                onChange={onChangeUsername}
                 required
-              />{" "}
+              />
             </div>
+            <div className="input-content">
+              <label className="input-title" htmlFor="email">
+                이메일
+              </label>
+              <input
+                type="email"
+                value={email}
+                onChange={onChangeEmail}
+                required
+              />
+            </div>
+            <div className="input-content">
+              <label className="input-title" htmlFor="password1">
+                비밀번호
+              </label>
+              <input
+                type="password"
+                value={password1}
+                onChange={onChangePwd1}
+                minLength="8"
+                pattern="^(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*#?&])[a-z\d$@$!%*#?&]{8,16}$"
+                required
+              />
+            </div>
+            <div className="input-content">
+              <label className="input-title" htmlFor="password2">
+                비밀번호 확인
+              </label>
+              <input
+                type="password"
+                value={password2}
+                onChange={onChangePwd2}
+                minLength="8"
+                pattern="^(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*#?&])[a-z\d$@$!%*#?&]{8,16}$"
+                required
+              />
+            </div>
+            <input className="signup-btn" type="submit" value="회원가입" />
+          </form>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default SignUp;
+
+
+
+{
+  /* 
             <div className="input-content">
               <label className="input-title" htmlFor="nickname">
                 닉네임
@@ -128,9 +160,9 @@ function SignUp() {
                 value={nickname}
                 onChange={onChangeNickname}
                 required
-              />{" "}
-            </div>
-            <div className="input-content">
+              />
+            </div> */
+  /* <div className="input-content">
               <label className="input-title" htmlFor="id">
                 아이디
               </label>
@@ -141,51 +173,9 @@ function SignUp() {
                 value={id}
                 onChange={onChangeId}
                 required
-              />{" "}
-            </div>
-            <div className="input-content">
-              {" "}
-              <label className="input-title" htmlFor="password1">
-                비밀번호
-              </label>
-              <input
-                className="sign-up-name"
-                name="password1"
-                type="password"
-                value={password1}
-                onChange={onChangePwd1}
-                required
-              />{" "}
-            </div>
-            <div className="input-content">
-              {" "}
-              <label className="input-title" htmlFor="password2">
-                비밀번호 확인
-              </label>
-              <input
-                className="sign-up-name"
-                name="password2"
-                type="password"
-                value={password2}
-                onChange={onChangePwd2}
-                required
-              />{" "}
-            </div>
-            <div className="input-content">
-              {" "}
-              <label className="input-title" htmlFor="email">
-                이메일
-              </label>
-              <input
-                className="sign-up-name"
-                name="email"
-                type="email"
-                value={email}
-                onChange={onChangeEmail}
-                required
-              />{" "}
-            </div>
-            <div className="input-content">
+              />
+            </div> */
+  /* <div className="input-content">
               <label className="input-title" htmlFor="dorm">
                 기숙사
               </label>
@@ -205,13 +195,5 @@ function SignUp() {
             <div className="input-content">
               <span className="input-title">학교인증</span>
               <img className="sign-up-name" alt="camera" />
-            </div>
-            <input className="signup-btn" type="submit" value="회원가입" />
-          </form>
-        </div>
-      </div>
-    </>
-  );
+            </div> */
 }
-
-export default SignUp;

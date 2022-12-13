@@ -57,9 +57,20 @@
   border-radius: 0px 10px 0px 0px;
 }
 
-.menu-logo{
-  margin-top: 10%;
-  object-fit:contain;
+.menu-title {
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  color: #ffffff;
+  text-align: left;
+  padding-left: 10%;
+  padding-top: 5%;
+}
+
+.menu-logo {
+  position: relative;
+  bottom: 60%;
+  object-fit: contain;
   width: 50%;
   height: 50%;
   cursor: pointer;
@@ -79,7 +90,7 @@
   padding: 15px 0 0 24px;
 }
 
-.menu-list>li{
+.menu-list > li {
   margin-bottom: 16px;
 }
 
@@ -87,6 +98,6 @@
   margin-bottom: 16px;
 }
 
-.list-name{
+.list-name {
   cursor: pointer;
 }

@@ -16,7 +16,7 @@
   background-color: #f2f2f2;
 }
 
-.profile-img{
+.profile-img {
   position: relative;
   top: 30px;
   margin-left: auto;
@@ -26,8 +26,8 @@
   border: solid #d8d8d8 1px;
   border-radius: 50%;
   background-color: #f2f2f2;
-  background-image: url('../images/sample_profile_img.svg');
-  background-size : cover;
+  background-image: url("../images/sample_profile_img.svg");
+  background-size: cover;
 }
 
 .profile-box {
@@ -41,10 +41,12 @@
   margin-bottom: 16px;
 }
 
-.profile-content-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+.profile-edit {
+  padding-top: 45px;
+}
+
+.edit-content {
+  width: 50%;
 }
 
 .edit-icon {
@@ -109,4 +111,29 @@
 
 .chat-img {
   margin-right: 16px;
+}
+
+.profile-edit-box {
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-btn {
+  width: 35%;
+  height: 35px;
+  background: linear-gradient(
+    315.35deg,
+    #225a21 13.45%,
+    #326a31 45.29%,
+    #528651 90.2%
+  );
+  border-style: none;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 8px;
+  cursor: pointer;
 }

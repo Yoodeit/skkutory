@@ -5,6 +5,7 @@ import menu_close from "../images/menu-close.png";
 import logo from "../images/logo.svg";
 import line from "../images/line.svg";
 
+
 function Menu(props) {
   const navigate = useNavigate();
   const { open, close } = props;
@@ -12,21 +13,30 @@ function Menu(props) {
   const url_myung = "https://dorm.skku.edu/dorm_seoul/";
   const url_dorm_rest =
     "https://dorm.skku.edu/dorm_seoul/lifeguide/dorm_restaurant.jsp";
-  const url_dorm_info = "https://dorm.skku.edu/dorm_seoul/lifeguide/e_house_living.jsp";
+  const url_dorm_info =
+    "https://dorm.skku.edu/dorm_seoul/lifeguide/e_house_living.jsp";
 
   return (
     <div className={open ? "openMenu menu" : "menu"}>
       {open ? (
         <section>
+          <img className="menu-close" onClick={close} src={menu_close}></img>
           <section className="menu-logo-box">
+            <div className="menu-title">
+              성균관대
+              <br />
+              기숙사
+              <br />
+              커뮤니티
+            </div>
             <img
               onClick={() => navigate("/")}
               className="menu-logo"
               alt="logo"
               src={logo}
             ></img>
-            <img className="menu-close" onClick={close} src={menu_close}></img>
           </section>
+
           <ul className="menu-list">
             <li onClick={() => navigate("../freeboard")} className="list-name">
               자유게시판

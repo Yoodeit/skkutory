@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../../css/Login.css";
 import logo from "../../images/logo.svg";
 import goback from "../../images/goback.svg";
@@ -8,7 +8,9 @@ import Header from "../Header";
 
 function Login() {
   const navigate = useNavigate();
-  const [id, setId] = useState("");
+  const { state } = useLocation();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState(false);
 
@@ -16,20 +18,21 @@ function Login() {
     e.preventDefault();
 
     const user = {
-      id: id,
+      username: username,
+      email: email,
       password: password,
     };
 
     axios
-      .post("/api/v1/mall/auth/login/", user)
+      .post("http://127.0.0.1:8000/rest-auth/login/", user)
       .then((res) => {
         if (res.data.key) {
           localStorage.clear();
           localStorage.setItem("token", res.data.key);
-          // 사용하려면 App.js에서 /로 라우팅해야 한다
-          window.location.replace("/");
+          window.location.replace("/home");
         } else {
-          setId("");
+          setUsername("");
+          setEmail("");
           setPassword("");
           localStorage.clear();
           setErrors(true);
@@ -38,26 +41,17 @@ function Login() {
       .catch((err) => {
         console.clear();
         alert("아이디 또는 비밀번호가 일치하지 않습니다");
-        setId("");
+        setUsername("");
+        setEmail("");
         setPassword("");
       });
+      
   };
+
 
   return (
     <>
-    <Header title="로그인" isMenu={false} ></Header>
-      {/* <section className="header">
-        <div className="header-con flex-r">
-          <img
-            onClick={() => navigate(-1)}
-            className="header-goback"
-            alt="goback"
-            src={goback}
-          />
-          <h1 className="header-page">로그인</h1>
-          <div className="header-empty-box"></div>
-        </div>
-      </section> */}
+      <Header title="로그인" isMenu={false}></Header>
 
       {errors === true && <h2>Cannot log in with provided credentials</h2>}
       <div className="login">
@@ -68,18 +62,26 @@ function Login() {
           <div className="login-input">
             <input
               className="login-id"
-              value={id}
+              value={username}
               required
-              onChange={(e) => setId(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
               type="text"
-              placeholder="아이디"
+              placeholder="이름"
+            />
+            <input
+              className="login-id"
+              value={email}
+              required
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="이메일"
             />
             <input
               className="login-pw"
               value={password}
               required
               onChange={(e) => setPassword(e.target.value)}
-              type="text"
+              type="password"
               placeholder="비밀번호"
             />
           </div>
@@ -95,7 +97,11 @@ function Login() {
             </Link>
           </div>
           <div>
-            <input className="login-btn" type="submit" value="로그인" />
+            <input
+              className="login-btn"
+              type="submit"
+              value="로그인"
+            />
           </div>
         </form>
       </div>
