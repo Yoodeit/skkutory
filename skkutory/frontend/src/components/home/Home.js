@@ -13,6 +13,7 @@ import e_house_img from "../../images/e-house.png";
 import g_house_img from "../../images/g-house.png";
 import k_house_img from "../../images/k-house.png";
 import c_house_img from "../../images/c-house.png";
+import Header from "../Header";
 
 function Home() {
   const url_e = "https://dorm.skku.edu/dorm_seoul/lifeguide/e_house_living.jsp";
@@ -22,6 +23,7 @@ function Home() {
 
   return (
     <>
+      <Header isHome="true"/>
       <div className="home">
         <div className="home-top">
           <div>

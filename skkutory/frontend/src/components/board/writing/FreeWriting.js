@@ -1,10 +1,11 @@
 import React from "react";
 import "../../../css/BoardWriting.css";
 import camera_icon from "../../../images/camera-icon.png";
-
+import Header from "../../Header";
 function FreeWriting() {
   return (
     <>
+      <Header title="자유게시판" />
       <div className="writing">
         <div className="writing-top">
           <div className="writing-title">
@@ -15,9 +16,9 @@ function FreeWriting() {
             />
           </div>
         </div>
-    
+
         <div className="writing-middle">
-        <div className="writing-content">
+          <div className="writing-content">
             <textarea
               className="writing-content-input"
               type="text"
