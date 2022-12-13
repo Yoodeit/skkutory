@@ -1,12 +1,12 @@
 from django.urls import path
-from .views import FreeboardList, FreeboardDetail, UserList, UserDetail
+from .views import PostList, PostDetail, UserList, UserDetail
 from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
-    path('freeboards/', FreeboardList.as_view(), name='post_list'),
-    path('freeboards/<int:pk>', FreeboardDetail.as_view(), name='post_detail'),
+    path('posts/', PostList.as_view(), name='post_list'),
+    path('posts/<int:pk>', PostDetail.as_view(), name='post_detail'),
 
-    path('user/', UserDetail.as_view()),
+    path('user/', UserList.as_view()),
     path('user/<int:pk>', UserDetail.as_view()),
 ]
 

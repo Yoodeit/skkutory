@@ -20,7 +20,6 @@ import SignIn from "./components/signin/SignIn";
 import Login from "./components/signin/Login";
 import SignUp from "./components/signin/SignUp";
 import MyPage from "./components/mypage/MyPage";
-import MyPageEdit from "./components/mypage/MyPageEdit";
 import MyPost from "./components/mypage/Mypost";
 import MyComment from "./components/mypage/Mycomment";
 import Bookmark from "./components/mypage/Bookmark";
@@ -39,7 +38,6 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
-          <Route pathe="/mypageedit" element={<MyPageEdit />}></Route>
           <Route path="/mypost" element={<MyPost />}></Route>
           <Route path="/mycomment" element={<MyComment />}></Route>
           <Route path="/bookmark" element={<Bookmark />}></Route>
