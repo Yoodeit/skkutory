@@ -69,6 +69,8 @@ INSTALLED_APPS = [
     'webpack_loader',
 ]
 
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000", "http://127.0.0.1:8000/rest-auth/logout/"]
+
 SITE_ID = 1
 
 REST_FRAMEWORK = {
