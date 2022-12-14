@@ -1,0 +1,177 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+
+@font-face {
+    font-family: "Pretendatd-Regular";
+    src: url("../fonts/Pretendard-Regular.ttf");
+  }
+  
+  * {
+    font-family: "Pretendatd-Regular";
+  }
+
+  .background{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+    height: 2002px;
+    background: #F2F2F2;
+}
+
+.board_view{
+    display: flex;
+        justify-content: center;
+        align-items: center;
+    width: 375px;
+    height: 60px;
+    background: #326A31;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0px 0px 10px 10px;
+}
+
+.back{
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    left: 16px;
+}
+
+.menu{
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    left: 329px;
+}
+
+.free_board_txt{
+    margin: 0px;
+    width: 96px;
+    height: 26px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26px;
+    text-align: center;
+    color: #F5F5F5;
+}
+
+.content_main{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 343px;
+  height: 388px;
+  left: 16px;
+  top: 78px;
+  bottom: 0%;
+  background: #F5F5F5;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+}
+
+.title{
+  position: absolute;
+  left: 36px;
+  right: 55px;
+  top: 18px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #323232;
+
+}
+
+.user{
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 8px;
+  top: 18px;
+}
+
+.info_time{
+  position: absolute;
+  left: 37px;
+  top: 33px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 10px;
+  color: #636363;
+
+}
+
+.content{
+  position: absolute;
+  left: 8px;
+  right: 13px;
+  top: 81px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  color: #323232;
+}
+
+.pic1{
+  position: absolute;
+  left: 8px;
+  top: 195px;
+}
+
+.pic2{
+  position: absolute;
+  left: 141px;
+  top: 195px;
+}
+
+.act{
+  position: absolute;
+  left: 225px;
+  top: 348px;
+}
+
+.comment{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 343px;
+  height: 36px;
+  left: 16px;
+  top: 490px;
+  background: #F5F5F5;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px; 
+}
+
+/* 댓글 */
+.write_comment{
+  position: absolute;
+  left: 2.92%;
+  top: 30.56%;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #636363;
+}
+
+.enter{
+  position: absolute;
+  left: 91.55%;
+  right: 3.21%;
+  top: 25%;
+  bottom: 25%;
+}
