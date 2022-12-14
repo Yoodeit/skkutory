@@ -6,21 +6,23 @@ import axios from 'axios';
 
 function FreeWriting() {
 
+  const [id, setId]=useState(6);
   const [title, setTitle]=useState('');
   const [content, setContent]=useState('');
+  const [owner, setOwner]=useState(1);
 
   const url='http://127.0.0.1:8000/api/posts/';
 
   const data={
-    id: '1',
-    title: title,
-    content: content,
-    owner: '1'
+    'id': id,
+    'title': title,
+    'content': content,
+    'owner': owner
   };
 
   const HandleSubmit = async () => {
     await axios
-      .post(url, data, { headers: { "Content-Type": "application/json", withCredentials: true } })
+      .post(url, data, { headers: { "Content-Type": "application/json" } })
       .then((res) => {
         if (res.data.key) {
           localStorage.clear();
@@ -30,7 +32,6 @@ function FreeWriting() {
       })
       .catch((err) => {
         console.log(err);
-        alert("오류");
       });
   };
 
