@@ -50,7 +50,7 @@ function SignUp () {
       .then((res) => {
         if (res.data.key) {
           localStorage.clear();
-          localStorage.setItem("token", res.data.key);
+          // localStorage.setItem("token", res.data.key);
           window.location.replace("/login");
         } else {
           setUsername("");
@@ -63,6 +63,7 @@ function SignUp () {
       })
       .catch((err) => {
         console.clear();
+        console.log(err);
         alert("error");
       });
   };

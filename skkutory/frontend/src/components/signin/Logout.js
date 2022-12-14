@@ -6,7 +6,7 @@ function Logout() {
 
   function onClickHandler() {
     localStorage.clear();
-    window.location.replace("http://localhost:3000/signin");
+    window.location.replace("http://localhost:3000/");
   }
 
   return <button className="logout-btn" onClick={onClickHandler}>로그아웃</button>;

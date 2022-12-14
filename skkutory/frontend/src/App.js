@@ -1,6 +1,6 @@
 //routing
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Main from "./components/Main";
+// import Main from "./components/Main";
 import FreeBoard from "./components/board/list/FreeBoard";
 import FreeWriting from "./components/board/writing/FreeWriting";
 import InfoBoard from "./components/board/list/InfoBoard";
@@ -32,8 +32,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Main />}></Route>
-          <Route path="/signin" element={<SignIn />}></Route>
+          {/* <Route path="/" element={<Main />}></Route> */}
+          <Route path="/" element={<SignIn />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
 
