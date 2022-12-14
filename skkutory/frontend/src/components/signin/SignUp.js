@@ -111,7 +111,7 @@ function SignUp () {
             </div>
             <div className="input-content">
               <label className="input-title" htmlFor="password1">
-                비밀번호
+                비밀번호<br/>(특수문자 포함 8자리)
               </label>
               <input
                 type="password"
