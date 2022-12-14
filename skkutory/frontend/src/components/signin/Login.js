@@ -45,13 +45,22 @@ function Login() {
         setEmail("");
         setPassword("");
       });
-      
   };
-
 
   return (
     <>
-      <Header title="로그인" isMenu={false}></Header>
+      <section className="header">
+        <div className="header-con flex-r">
+          <img
+            onClick={() => navigate(-1)}
+            className="header-goback"
+            alt="goback"
+            src={goback}
+          />
+          <h1 className="header-page">로그인</h1>
+          <div className="header-empty-box"></div>
+        </div>
+      </section>
 
       {errors === true && <h2>Cannot log in with provided credentials</h2>}
       <div className="login">
@@ -97,11 +106,7 @@ function Login() {
             </Link>
           </div>
           <div>
-            <input
-              className="login-btn"
-              type="submit"
-              value="로그인"
-            />
+            <input className="login-btn" type="submit" value="로그인" />
           </div>
         </form>
       </div>
