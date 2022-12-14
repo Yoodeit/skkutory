@@ -64,7 +64,7 @@ function SignUp () {
       .catch((err) => {
         console.clear();
         console.log(err);
-        alert("error");
+        alert("이미 존재하는 회원정보입니다.");
       });
   };
 
@@ -111,7 +111,8 @@ function SignUp () {
             </div>
             <div className="input-content">
               <label className="input-title" htmlFor="password1">
-                비밀번호<br/>(특수문자 포함 8자리)
+                비밀번호<br/>
+                <span>(영어+숫자+특수기호 8자리)</span>
               </label>
               <input
                 type="password"
